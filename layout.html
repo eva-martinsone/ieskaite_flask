@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="lv">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Progresīvās programmēšanas metodes">
+  <meta name="author" content="Eva Mārtiņsone">
+  <title>Eksāmena darbs</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="/static/css/starter-template.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="col-lg-8 mx-auto p-3 py-md-5 bg=dark">
+    <header class="d-flex justify-content-center py-3 bg=dark">
+      <ul class="nav nav-pills bg=secondary">
+        <li class="nav-item"><a href="/" class="nav-link {% if aktiva_lapa == 'home' %} active {% endif %}">Sākums</a></li>
+        <li class="nav-item"><a href="/sekmes" class="nav-link {% if aktiva_lapa == 'sekmes' %} active {% endif %}">Sekmes</a></li>
+        <li class="nav-item"><a href="/sazinies" class="nav-link {% if aktiva_lapa == 'sazinies' %} active {% endif %}">Sazinies</a></li>
+        <li class="nav-item"><a href="/iedvesmai" class="nav-link {% if aktiva_lapa == 'iedvesmai' %} active {% endif %}">Iedvesmai</a></li>
+      </ul>
+    </header>
+
+    <main>
+      {% block saturs %}
+
+      {% endblock %}
+
+    </main>
+
+    <footer class="pt-5 my-5 text-muted border-top">
+      <h3 style="text-align:right; color: rgb(224, 120, 50)">Evas Mārtiņsone &middot; &copy; 2021</h3>
+    </footer>
+  </div>
+
+
+  <script src="/static/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
