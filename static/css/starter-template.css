@@ -38,3 +38,16 @@ body {
     font-size: 3.5rem;
   }
 }
+
+.flex-container {
+  display: flex;
+}
+
+.flex-child {
+  flex: 1;
+  border: 2px solid rgb(247, 158, 43);
+}  
+
+.flex-child:first-child {
+  margin-right: 20px;
+} 

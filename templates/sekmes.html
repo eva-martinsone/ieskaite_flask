@@ -3,12 +3,32 @@
 {% set aktiva_lapa = 'jaunumi' %}
 
 {% block saturs %}
-<h1>Mācāmies flask</h1>
-<p class="fs-5 col-md-8">Šodien apgūstam vienkāršu bootstrap lietošanu!</p>
+<h1 style="text-align: center; color:rgb(218, 111, 40);">Ievadām Juridskās koledžas priekšmetus un atzīmes</h1>
 
-<h1>Mācāmies flask</h1>
-<p class="fs-5 col-md-8">Šodien apgūstam vienkāršu bootstrap lietošanu!</p>
+<div class="flex-container">
 
-<h1>Mācāmies flask</h1>
-<p class="fs-5 col-md-8">Šodien apgūstam vienkāršu bootstrap lietošanu!</p>
+    <div class="flex-child magenta">
+        <img src="/static/img/tech.jpg" alt="macibas" style="width:100%">
+    </div>
+    
+    <div class="flex-child green">
+        <form class="col-lg-8 mx-auto p-3 py-md-5" action="form" method="POST">
+            <div class="mb-3">
+            
+              <input type="text" class="form-control" 
+              placeholder="Priekšmets" name="prieksmets"
+            </div>
+        </br>
+            <div class="mb-3">
+                <input type="integer" class="form-control" 
+                placeholder="Atzīme" name="atzime"
+            </div>
+         </br>
+            
+            <button type="submit" class="btn btn-secondary">Pievienot</button>
+          </form>
+    </div>
+    
+  </div>
+
 {% endblock %}
