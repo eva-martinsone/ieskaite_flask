@@ -7,18 +7,18 @@ app = Flask(__name__)
 def home():
     return render_template('home.html')
 
-@app.route('/kontakti')
-def kontakti():
+@app.route('/sazinies')
+def sazinies():
     status = request.args.get('status')
-    return render_template('kontakti.html', veiksmigi = status)
+    return render_template('sazinies.html', veiksmigi = status)
 
-@app.route('/parmani')
-def parmani():
-    return render_template('parmani.html')
+@app.route('/seksmes')
+def sekmes():
+    return render_template('sekmes.html')
 
-@app.route('/jaunumi')
+@app.route('/iedvesmai')
 def jaunumi():
-    return render_template('jaunumi.html')
+    return render_template('iedvesmai.html')
 
 @app.route('/postData', methods = ['POST', 'GET'])
 def postData():
@@ -39,8 +39,8 @@ def lasitDatus():
     dati2 = []
     for rindina in rindinas:
         ieraksts = rindina.split(',')
-        #print(rindina)
-        #print(ieraksts)
+        print(rindina)
+        print(ieraksts)
         dati.append(ieraksts)
         dati2.append({'vards':ieraksts[0], 'uzvards':ieraksts[1], 'hobijs':ieraksts[2]})
 
