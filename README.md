@@ -1,1 +1,2 @@
-# ieskaite_flask
+# JK Flask framework
+Māris Danne
