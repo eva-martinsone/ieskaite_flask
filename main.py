@@ -12,9 +12,10 @@ def sazinies():
     status = request.args.get('status')
     return render_template('sazinies.html', veiksmigi = status)
 
-@app.route('/seksmes')
+@app.route('/sekmes')
 def sekmes():
-    return render_template('sekmes.html')
+    status = request.args.get('status')
+    return render_template('sekmes.html', veiksmigi = status)
 
 @app.route('/iedvesmai')
 def jaunumi():
@@ -25,10 +26,10 @@ def postData():
     if request.method == 'GET':
         return redirect('/')
     elif request.method == 'POST':
-        #print(request.form)
-        vards = request.form.get('vards')
-        pievienot(vards)
-        return redirect('/kontakti?status=1')
+        print(request.form)
+        prieksmets = request.form.get('prieksmets')
+        # pievienot(vards)
+        return redirect('/sekmes?status=1')
     else:
         return "This method not supported!"
 

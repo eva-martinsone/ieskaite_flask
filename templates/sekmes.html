@@ -1,9 +1,10 @@
 {% extends "layout.html" %}
 
-{% set aktiva_lapa = 'jaunumi' %}
+{% set aktiva_lapa = 'sekmes' %}
 
 {% block saturs %}
 <h1 style="text-align: center; color:rgb(218, 111, 40);">Ievadām Juridskās koledžas priekšmetus un atzīmes</h1>
+
 
 <div class="flex-container">
 
@@ -12,7 +13,7 @@
     </div>
     
     <div class="flex-child green">
-        <form class="col-lg-8 mx-auto p-3 py-md-5" action="form" method="POST">
+        <form class="col-lg-8 mx-auto p-3 py-md-5" action='/postData' method="POST">
             <div class="mb-3">
             
               <input type="text" class="form-control" 
@@ -20,13 +21,20 @@
             </div>
         </br>
             <div class="mb-3">
-                <input type="integer" class="form-control" 
+                <input type="number" class="form-control" 
                 placeholder="Atzīme" name="atzime"
             </div>
          </br>
             
             <button type="submit" class="btn btn-secondary">Pievienot</button>
           </form>
+          {% if veiksmigi == '1' %}
+          <br>
+          <br>
+          <div class="alert alert-success" role="alert">
+          Tu esi malacīte! Labi pastrādāts! 
+          </div>
+          {% endif %}
     </div>
     
   </div>
