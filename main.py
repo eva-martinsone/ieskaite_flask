@@ -23,8 +23,8 @@ def sekmes_man():
     file = pd.read_csv("sekmes_man.csv")
     file.to_html("sekmes_man.html")
     html_file = file.to_html()
-    original = r'E:\JK\Testiem\sekmes_man.html'
-    target = r'E:\JK\Testiem\jk_flask_intro\templates\sekmes_man.html'
+    original = r'C:\Users\Lietotajs\Documents\itais\ieskaite_flask\sekmes_man.html'
+    target = r'C:\Users\Lietotajs\Documents\itais\ieskaite_flask\templates\sekmes_man.html'
     shutil.copyfile(original, target)
     return render_template('sekmes_man.html')
 
