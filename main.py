@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request, redirect
 import pandas as pd
+import shutil
+
 
 app = Flask(__name__)
 
@@ -7,19 +9,24 @@ app = Flask(__name__)
 def home():
     return render_template('home.html')
 
-@app.route('/sazinies')
-def sazinies():
-    status = request.args.get('status')
-    return render_template('sazinies.html', veiksmigi = status)
-
 @app.route('/sekmes')
 def sekmes():
     status = request.args.get('status')
     return render_template('sekmes.html', veiksmigi = status)
 
 @app.route('/iedvesmai')
-def jaunumi():
+def iedvesmai():
     return render_template('iedvesmai.html')
+
+@app.route('/sekmes_man', methods=["POST", "GET"])
+def sekmes_man():
+    file = pd.read_csv("sekmes_man.csv")
+    file.to_html("sekmes_man.html")
+    html_file = file.to_html()
+    original = r'E:\JK\Testiem\sekmes_man.html'
+    target = r'E:\JK\Testiem\jk_flask_intro\templates\sekmes_man.html'
+    shutil.copyfile(original, target)
+    return render_template('sekmes_man.html')
 
 @app.route('/postData', methods = ['POST', 'GET'])
 def postData():
@@ -35,26 +42,11 @@ def postData():
         print(saraksts)
         # ar Pandas bibliotēku izveidojam csv datni, kur saglabāties
         df = pd.DataFrame([saraksts])
-        df.to_csv('sekmes.csv', mode='a', index=False, header=False)
+        df.to_csv('sekmes_man.csv', mode='a', index=False, header=False)
         return redirect('/sekmes?status=1')
     else:
         return "This method not supported!"
 
-# @app.route('/lasitDatus')
-# def lasitDatus():
-#     rindinas = lasitRindinas()
-#     dati = []
-#     dati2 = []
-#     for rindina in rindinas:
-#         ieraksts = rindina.split(',')
-#         print(rindina)
-#         print(ieraksts)
-#         dati.append(ieraksts)
-#         dati2.append({'vards':ieraksts[0], 'uzvards':ieraksts[1], 'hobijs':ieraksts[2]})
-
-    #print(dati)
-    return render_template("dati.html", rindinas = dati, rindinas2 = dati2)
-
-
+    
 if __name__ == '__main__':
     app.run(port=80, debug=True)
