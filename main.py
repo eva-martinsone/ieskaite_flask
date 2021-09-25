@@ -33,14 +33,14 @@ def postData():
     if request.method == 'GET':
         return redirect('/')
     elif request.method == 'POST':
-       # izvelkam datus
+       # izvelk datus
         prieksmets = request.form.get('prieksmets')
         atzime = request.form.get('atzime')
-        # izveidojam sarakstu
+        # izveido sarakstu
         saraksts = list((prieksmets, atzime))
-        #pārbaudām sarakstu
+        #pārbauda sarakstu
         print(saraksts)
-        # ar Pandas bibliotēku izveidojam csv datni, kur saglabāties
+        # ar Pandas bibliotēku izveido csv datni, kur saglabāties
         df = pd.DataFrame([saraksts])
         df.to_csv('sekmes_man.csv', mode='a', index=False, header=False)
         return redirect('/sekmes?status=1')
